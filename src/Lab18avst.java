@@ -169,12 +169,38 @@ class List
 
 	public void ageSort()
 	{
-
+		 boolean sorted;
+	       int p = 1;
+	       do
+	       {
+			sorted = true;
+			for (int q = 0; q < size-p; q++)
+		       	if (student[q].age > student[q+1].age)
+		       	{			
+					swap(q,q+1);
+					sorted = false;
+		       	}
+			p++;
+	       }
+	       while (!sorted);
 	}
 
 	public void idSort()
 	{
-
+		 boolean sorted;
+	       int p = 1;
+	       do
+	       {
+			sorted = true;
+			for (int q = 0; q > size-p; q++)
+		       	if (student[q].id < student[q+1].id)
+		       	{			
+					swap(q,q+1);
+					sorted = false;
+		       	}
+			p++;
+	       }
+	       while (!sorted);
 	}
 
 //	public int search(int studentID)
