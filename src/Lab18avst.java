@@ -192,8 +192,8 @@ class List
 	       do
 	       {
 			sorted = true;
-			for (int q = 0; q > size-p; q++)
-		       	if (student[q].id < student[q+1].id)
+			for (int q = 0; q < size-p; q++)
+		       	if (student[q].id > student[q+1].id)
 		       	{			
 					swap(q,q+1);
 					sorted = false;
