@@ -137,6 +137,25 @@ class List
 
 	public void displayStudent(int index)
 	{
+		int lo = 0;
+		int hi = student.length-1;
+		int mid = 0;
+		boolean found = false;
+		while (lo <= hi && !found)
+		{
+			mid = (lo + hi) / 2;
+			if (student[mid] == index)
+	 			found = true;
+			else
+	 			if (student[mid] > index)
+	 				hi = mid - 1;
+	 			else
+	    				lo = mid + 1;
+		}
+		if (found)
+			return mid;
+		else
+	      		return -1;
 
 	}
 
