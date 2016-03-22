@@ -29,18 +29,18 @@ public class Lab18avst
 		studentArray.display("STUDENTS SORTED IN ASCENDING ORDER BY ID#");
 		studentArray.pause();
 
-//		int studentID = getID();
-//		int index = studentArray.search(studentID);
-//
-//		if (index == -1)
-//		    System.out.println("There is no student with an ID# of "+studentID+".\n");
-//		else
-//		{
-//			studentArray.displayStudent(index);   // displays the information for the found student
-//			studentArray.delete(index);           // remove the same student from the array
-//			studentArray.display("STUDENTS SORTED IN ASCENDING ORDER BY ID# WITHOUT STUDENT# "+studentID);
-//			studentArray.pause();
-//		}
+		int studentID = getID();
+		int index = studentArray.search(studentID);
+
+		if (index == -1)
+		    System.out.println("There is no student with an ID# of "+studentID+".\n");
+		else
+		{
+			studentArray.displayStudent(index);   // displays the information for the found student
+			studentArray.delete(index);           // remove the same student from the array
+			studentArray.display("STUDENTS SORTED IN ASCENDING ORDER BY ID# WITHOUT STUDENT# "+studentID);
+			studentArray.pause();
+		}
 	}
 
 	public static int getID()
@@ -137,26 +137,13 @@ class List
 
 	public void displayStudent(int index)
 	{
-		int lo = 0;
-		int hi = student.length-1;
-		int mid = 0;
-		boolean found = false;
-		while (lo <= hi && !found)
-		{
-			mid = (lo + hi) / 2;
-			if (student[mid] == index)
-	 			found = true;
-			else
-	 			if (student[mid] > index)
-	 				hi = mid - 1;
-	 			else
-	    				lo = mid + 1;
-		}
-		if (found)
-			return mid;
-		else
-	      		return -1;
-
+		System.out.println("");
+		System.out.println("Student Record for ID# " + index );
+		System.out.println("");
+		System.out.println("Name: " + student[index].name);
+		System.out.println("Age:  " + student[index].age);
+		System.out.println("GPA:  " + student[index].gpa);
+		System.out.println("");
 	}
 
 	private void swap(int x, int y)
@@ -222,10 +209,28 @@ class List
 	       while (!sorted);
 	}
 
-//	public int search(int studentID)
-//	{
-
-//	}
+	public int search(int studentID)
+	{
+		int lo = 0;
+		int hi = student.length-1;
+		int mid = 0;
+		boolean found = false;
+		while (lo <= hi && !found)
+		{
+			mid = (lo + hi) / 2;
+			if (student[mid].id == studentID)
+	 			found = true;
+			else
+	 			if (student[mid].id > studentID)
+	 				hi = mid - 1;
+	 			else
+	    				lo = mid + 1;
+		}
+		if (found)
+			return mid;
+		else
+	      		return -1;
+	}
 
 	public void delete(int index)
 	{
